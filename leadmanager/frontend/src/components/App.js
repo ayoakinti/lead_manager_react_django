@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 import Header from "./layout/Header";
@@ -20,22 +20,20 @@ const alertOptions = {
   transition: transitions.SCALE,
 };
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <AlertProvider template={AlertTemplate} {...alertOptions}>
-          <Fragment>
-            <Alerts />
-            <Header />
-            <div className="container">
-              <Dashboard />
-            </div>
-          </Fragment>
-        </AlertProvider>
-      </Provider>
-    );
-  }
+export default function App() {
+  return (
+    <Provider store={store}>
+      <AlertProvider template={AlertTemplate} {...alertOptions}>
+        <Fragment>
+          <Alerts />
+          <Header />
+          <div className="container">
+            <Dashboard />
+          </div>
+        </Fragment>
+      </AlertProvider>
+    </Provider>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
